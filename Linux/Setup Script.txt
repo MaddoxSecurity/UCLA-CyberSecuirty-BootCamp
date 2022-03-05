@@ -1,0 +1,37 @@
+# Setup scripts folder
+if [ ! -d /home/ryan/scripts ]
+then
+mkdir /home/ryan/scripts
+chown ryan:ryan /home/ryan/scripts
+fi
+
+# Add scripts folder to .bashrc for ryan
+echo "" >> /home/ryan/.bashrc
+echo "PATH=$PATH:/home/ryan/scripts" >> /home/ryan/.bashrc
+echo "" >> /home/ryan/.bashrc
+
+
+# Print and log
+echo "$(date) Added ~/scripts directory to sysadmin's PATH." | tee -a $log_file
+
+
+Adding a few custom aliases might be nice too!
+
+```bash
+# Add custom aliases to /home/ryan/.bashrc
+echo "#Custom Aliases" >> /home/ryan/.bashrc
+echo "alias reload='source ~/.bashrc && echo Bash config reloaded'" >> /home/ryan/.bashrc
+echo "alias lsa='ls -a'" >> /home/ryan/.bashrc
+echo "alias docs='cd ~/Documents'" >> /home/ryan/.bashrc
+echo "alias dwn='cd ~/Downloads'" >> /home/ryan/.bashrc
+echo "alias etc='cd /etc'" >> /home/ryan/.bashrc
+echo "alias rc='nano ~/.bashrc'" >> /home/ryan/.bashrc
+
+# Print and log
+echo "$(date) Added custom alias collection to sysadmin's bashrc." | tee -a $log_file
+
+#Print out and log Exit
+echo "$(date) Script Finished. Exiting."
+echo "$(date) Script Finished. Exiting." >> $log_file
+
+exit
