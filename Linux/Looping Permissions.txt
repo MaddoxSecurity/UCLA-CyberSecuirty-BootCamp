@@ -1,0 +1,8 @@
+# loop through scripts in my scripts folder and set permissions to executable
+for script in $(ls ~/scripts)
+do
+    if [ ! -x ~/scripts/$script ]
+    then
+        chmod +x ~/scripts/$script
+    fi
+done
